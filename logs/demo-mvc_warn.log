@@ -1,0 +1,2 @@
+[demo-mvc] WARN 2016-01-17 23:44:55,371 [http-nio-7070-exec-1] DefaultHandlerExceptionResolver.handleHttpRequestMethodNotSupported(208) | Request method 'GET' not supported
+[demo-mvc] WARN 2016-01-17 23:45:26,812 [http-nio-7070-exec-4] DefaultHandlerExceptionResolver.handleHttpRequestMethodNotSupported(208) | Request method 'GET' not supported

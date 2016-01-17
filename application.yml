@@ -1,0 +1,13 @@
+merchant:
+ custNo:
+  10000111
+ bankCardNo:
+  622908211695575412
+ idName:
+  汤筱媛
+ idCardNo:
+  32068119890707502X
+ mobile:
+  13611743613
+ appServerUrl:
+  http://127.0.0.1:16080/JytRNPay/tranCenter/encXmlReq.do
