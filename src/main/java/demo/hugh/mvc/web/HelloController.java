@@ -30,8 +30,8 @@ public class HelloController {
 			log.error("用户" + name + "未找到");
 			return "用户" + name + "未找到";
 		} else {
-			log.info("你好, " + user.getName());
-			return "你好," + user.getName();
+			log.info("你好, " + user.getUserName());
+			return "你好," + user.getUserName();
 		}
 	}
 

@@ -1,93 +1,78 @@
 package demo.hugh.mvc.mapper;
 
-import demo.hugh.mvc.po.User;
-import demo.hugh.mvc.po.UserExample.Criteria;
-import demo.hugh.mvc.po.UserExample.Criterion;
-import demo.hugh.mvc.po.UserExample;
+import demo.hugh.mvc.po.Relation;
+import demo.hugh.mvc.po.RelationExample.Criteria;
+import demo.hugh.mvc.po.RelationExample.Criterion;
+import demo.hugh.mvc.po.RelationExample;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 
-public class UserSqlProvider {
+public class RelationSqlProvider {
 
-    public String countByExample(UserExample example) {
+    public String countByExample(RelationExample example) {
         SQL sql = new SQL();
-        sql.SELECT("count(*)").FROM("user");
+        sql.SELECT("count(*)").FROM("relation");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String deleteByExample(UserExample example) {
+    public String deleteByExample(RelationExample example) {
         SQL sql = new SQL();
-        sql.DELETE_FROM("user");
+        sql.DELETE_FROM("relation");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String insertSelective(User record) {
+    public String insertSelective(Relation record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("user");
+        sql.INSERT_INTO("relation");
         
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=INTEGER}");
         }
         
-        if (record.getUserNo() != null) {
-            sql.VALUES("user_no", "#{userNo,jdbcType=VARCHAR}");
+        if (record.getUserId() != null) {
+            sql.VALUES("user_id", "#{userId,jdbcType=INTEGER}");
         }
         
-        if (record.getLoginName() != null) {
-            sql.VALUES("login_name", "#{loginName,jdbcType=VARCHAR}");
+        if (record.getSecondUserId() != null) {
+            sql.VALUES("second_user_id", "#{secondUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getPassword() != null) {
-            sql.VALUES("password", "#{password,jdbcType=VARCHAR}");
+        if (record.getRelationshipId() != null) {
+            sql.VALUES("relationship_id", "#{relationshipId,jdbcType=INTEGER}");
         }
         
-        if (record.getUserName() != null) {
-            sql.VALUES("user_name", "#{userName,jdbcType=VARCHAR}");
+        if (record.getAppellation() != null) {
+            sql.VALUES("appellation", "#{appellation,jdbcType=VARCHAR}");
         }
         
-        if (record.getBirthday() != null) {
-            sql.VALUES("birthday", "#{birthday,jdbcType=TIMESTAMP}");
+        if (record.getCreateTime() != null) {
+            sql.VALUES("create_time", "#{createTime,jdbcType=TIMESTAMP}");
         }
         
-        if (record.getIsLunar() != null) {
-            sql.VALUES("is_lunar", "#{isLunar,jdbcType=BIT}");
-        }
-        
-        if (record.getAvatar() != null) {
-            sql.VALUES("avatar", "#{avatar,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getBoundMobile() != null) {
-            sql.VALUES("bound_mobile", "#{boundMobile,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getBoundEmail() != null) {
-            sql.VALUES("bound_email", "#{boundEmail,jdbcType=VARCHAR}");
+        if (record.getRemark() != null) {
+            sql.VALUES("remark", "#{remark,jdbcType=VARCHAR}");
         }
         
         return sql.toString();
     }
 
-    public String selectByExample(UserExample example) {
+    public String selectByExample(RelationExample example) {
         SQL sql = new SQL();
         if (example != null && example.isDistinct()) {
             sql.SELECT_DISTINCT("id");
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("user_no");
-        sql.SELECT("login_name");
-        sql.SELECT("password");
-        sql.SELECT("user_name");
-        sql.SELECT("birthday");
-        sql.SELECT("is_lunar");
-        sql.SELECT("avatar");
-        sql.SELECT("bound_mobile");
-        sql.SELECT("bound_email");
-        sql.FROM("user");
+        sql.SELECT("user_id");
+        sql.SELECT("second_user_id");
+        sql.SELECT("relationship_id");
+        sql.SELECT("appellation");
+        sql.SELECT("create_time");
+        sql.SELECT("remark");
+        sql.FROM("relation");
         applyWhere(sql, example, false);
         
         if (example != null && example.getOrderByClause() != null) {
@@ -98,50 +83,38 @@ public class UserSqlProvider {
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
-        User record = (User) parameter.get("record");
-        UserExample example = (UserExample) parameter.get("example");
+        Relation record = (Relation) parameter.get("record");
+        RelationExample example = (RelationExample) parameter.get("example");
         
         SQL sql = new SQL();
-        sql.UPDATE("user");
+        sql.UPDATE("relation");
         
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=INTEGER}");
         }
         
-        if (record.getUserNo() != null) {
-            sql.SET("user_no = #{record.userNo,jdbcType=VARCHAR}");
+        if (record.getUserId() != null) {
+            sql.SET("user_id = #{record.userId,jdbcType=INTEGER}");
         }
         
-        if (record.getLoginName() != null) {
-            sql.SET("login_name = #{record.loginName,jdbcType=VARCHAR}");
+        if (record.getSecondUserId() != null) {
+            sql.SET("second_user_id = #{record.secondUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getPassword() != null) {
-            sql.SET("password = #{record.password,jdbcType=VARCHAR}");
+        if (record.getRelationshipId() != null) {
+            sql.SET("relationship_id = #{record.relationshipId,jdbcType=INTEGER}");
         }
         
-        if (record.getUserName() != null) {
-            sql.SET("user_name = #{record.userName,jdbcType=VARCHAR}");
+        if (record.getAppellation() != null) {
+            sql.SET("appellation = #{record.appellation,jdbcType=VARCHAR}");
         }
         
-        if (record.getBirthday() != null) {
-            sql.SET("birthday = #{record.birthday,jdbcType=TIMESTAMP}");
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
         }
         
-        if (record.getIsLunar() != null) {
-            sql.SET("is_lunar = #{record.isLunar,jdbcType=BIT}");
-        }
-        
-        if (record.getAvatar() != null) {
-            sql.SET("avatar = #{record.avatar,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getBoundMobile() != null) {
-            sql.SET("bound_mobile = #{record.boundMobile,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getBoundEmail() != null) {
-            sql.SET("bound_email = #{record.boundEmail,jdbcType=VARCHAR}");
+        if (record.getRemark() != null) {
+            sql.SET("remark = #{record.remark,jdbcType=VARCHAR}");
         }
         
         applyWhere(sql, example, true);
@@ -150,62 +123,47 @@ public class UserSqlProvider {
 
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
-        sql.UPDATE("user");
+        sql.UPDATE("relation");
         
         sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("user_no = #{record.userNo,jdbcType=VARCHAR}");
-        sql.SET("login_name = #{record.loginName,jdbcType=VARCHAR}");
-        sql.SET("password = #{record.password,jdbcType=VARCHAR}");
-        sql.SET("user_name = #{record.userName,jdbcType=VARCHAR}");
-        sql.SET("birthday = #{record.birthday,jdbcType=TIMESTAMP}");
-        sql.SET("is_lunar = #{record.isLunar,jdbcType=BIT}");
-        sql.SET("avatar = #{record.avatar,jdbcType=VARCHAR}");
-        sql.SET("bound_mobile = #{record.boundMobile,jdbcType=VARCHAR}");
-        sql.SET("bound_email = #{record.boundEmail,jdbcType=VARCHAR}");
+        sql.SET("user_id = #{record.userId,jdbcType=INTEGER}");
+        sql.SET("second_user_id = #{record.secondUserId,jdbcType=INTEGER}");
+        sql.SET("relationship_id = #{record.relationshipId,jdbcType=INTEGER}");
+        sql.SET("appellation = #{record.appellation,jdbcType=VARCHAR}");
+        sql.SET("create_time = #{record.createTime,jdbcType=TIMESTAMP}");
+        sql.SET("remark = #{record.remark,jdbcType=VARCHAR}");
         
-        UserExample example = (UserExample) parameter.get("example");
+        RelationExample example = (RelationExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(User record) {
+    public String updateByPrimaryKeySelective(Relation record) {
         SQL sql = new SQL();
-        sql.UPDATE("user");
+        sql.UPDATE("relation");
         
-        if (record.getUserNo() != null) {
-            sql.SET("user_no = #{userNo,jdbcType=VARCHAR}");
+        if (record.getUserId() != null) {
+            sql.SET("user_id = #{userId,jdbcType=INTEGER}");
         }
         
-        if (record.getLoginName() != null) {
-            sql.SET("login_name = #{loginName,jdbcType=VARCHAR}");
+        if (record.getSecondUserId() != null) {
+            sql.SET("second_user_id = #{secondUserId,jdbcType=INTEGER}");
         }
         
-        if (record.getPassword() != null) {
-            sql.SET("password = #{password,jdbcType=VARCHAR}");
+        if (record.getRelationshipId() != null) {
+            sql.SET("relationship_id = #{relationshipId,jdbcType=INTEGER}");
         }
         
-        if (record.getUserName() != null) {
-            sql.SET("user_name = #{userName,jdbcType=VARCHAR}");
+        if (record.getAppellation() != null) {
+            sql.SET("appellation = #{appellation,jdbcType=VARCHAR}");
         }
         
-        if (record.getBirthday() != null) {
-            sql.SET("birthday = #{birthday,jdbcType=TIMESTAMP}");
+        if (record.getCreateTime() != null) {
+            sql.SET("create_time = #{createTime,jdbcType=TIMESTAMP}");
         }
         
-        if (record.getIsLunar() != null) {
-            sql.SET("is_lunar = #{isLunar,jdbcType=BIT}");
-        }
-        
-        if (record.getAvatar() != null) {
-            sql.SET("avatar = #{avatar,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getBoundMobile() != null) {
-            sql.SET("bound_mobile = #{boundMobile,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getBoundEmail() != null) {
-            sql.SET("bound_email = #{boundEmail,jdbcType=VARCHAR}");
+        if (record.getRemark() != null) {
+            sql.SET("remark = #{remark,jdbcType=VARCHAR}");
         }
         
         sql.WHERE("id = #{id,jdbcType=INTEGER}");
@@ -213,7 +171,7 @@ public class UserSqlProvider {
         return sql.toString();
     }
 
-    protected void applyWhere(SQL sql, UserExample example, boolean includeExamplePhrase) {
+    protected void applyWhere(SQL sql, RelationExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
         }

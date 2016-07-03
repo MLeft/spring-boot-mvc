@@ -1,93 +1,88 @@
 package demo.hugh.mvc.mapper;
 
-import demo.hugh.mvc.po.User;
-import demo.hugh.mvc.po.UserExample.Criteria;
-import demo.hugh.mvc.po.UserExample.Criterion;
-import demo.hugh.mvc.po.UserExample;
+import demo.hugh.mvc.po.Address;
+import demo.hugh.mvc.po.AddressExample.Criteria;
+import demo.hugh.mvc.po.AddressExample.Criterion;
+import demo.hugh.mvc.po.AddressExample;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.jdbc.SQL;
 
-public class UserSqlProvider {
+public class AddressSqlProvider {
 
-    public String countByExample(UserExample example) {
+    public String countByExample(AddressExample example) {
         SQL sql = new SQL();
-        sql.SELECT("count(*)").FROM("user");
+        sql.SELECT("count(*)").FROM("address");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String deleteByExample(UserExample example) {
+    public String deleteByExample(AddressExample example) {
         SQL sql = new SQL();
-        sql.DELETE_FROM("user");
+        sql.DELETE_FROM("address");
         applyWhere(sql, example, false);
         return sql.toString();
     }
 
-    public String insertSelective(User record) {
+    public String insertSelective(Address record) {
         SQL sql = new SQL();
-        sql.INSERT_INTO("user");
+        sql.INSERT_INTO("address");
         
         if (record.getId() != null) {
             sql.VALUES("id", "#{id,jdbcType=INTEGER}");
         }
         
-        if (record.getUserNo() != null) {
-            sql.VALUES("user_no", "#{userNo,jdbcType=VARCHAR}");
+        if (record.getUserId() != null) {
+            sql.VALUES("user_id", "#{userId,jdbcType=INTEGER}");
         }
         
-        if (record.getLoginName() != null) {
-            sql.VALUES("login_name", "#{loginName,jdbcType=VARCHAR}");
+        if (record.getCountry() != null) {
+            sql.VALUES("country", "#{country,jdbcType=INTEGER}");
         }
         
-        if (record.getPassword() != null) {
-            sql.VALUES("password", "#{password,jdbcType=VARCHAR}");
+        if (record.getProvince() != null) {
+            sql.VALUES("province", "#{province,jdbcType=INTEGER}");
         }
         
-        if (record.getUserName() != null) {
-            sql.VALUES("user_name", "#{userName,jdbcType=VARCHAR}");
+        if (record.getCity() != null) {
+            sql.VALUES("city", "#{city,jdbcType=INTEGER}");
         }
         
-        if (record.getBirthday() != null) {
-            sql.VALUES("birthday", "#{birthday,jdbcType=TIMESTAMP}");
+        if (record.getCounty() != null) {
+            sql.VALUES("county", "#{county,jdbcType=INTEGER}");
         }
         
-        if (record.getIsLunar() != null) {
-            sql.VALUES("is_lunar", "#{isLunar,jdbcType=BIT}");
+        if (record.getAddress() != null) {
+            sql.VALUES("address", "#{address,jdbcType=VARCHAR}");
         }
         
-        if (record.getAvatar() != null) {
-            sql.VALUES("avatar", "#{avatar,jdbcType=VARCHAR}");
+        if (record.getBeginDate() != null) {
+            sql.VALUES("begin_date", "#{beginDate,jdbcType=DATE}");
         }
         
-        if (record.getBoundMobile() != null) {
-            sql.VALUES("bound_mobile", "#{boundMobile,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getBoundEmail() != null) {
-            sql.VALUES("bound_email", "#{boundEmail,jdbcType=VARCHAR}");
+        if (record.getEndDate() != null) {
+            sql.VALUES("end_date", "#{endDate,jdbcType=DATE}");
         }
         
         return sql.toString();
     }
 
-    public String selectByExample(UserExample example) {
+    public String selectByExample(AddressExample example) {
         SQL sql = new SQL();
         if (example != null && example.isDistinct()) {
             sql.SELECT_DISTINCT("id");
         } else {
             sql.SELECT("id");
         }
-        sql.SELECT("user_no");
-        sql.SELECT("login_name");
-        sql.SELECT("password");
-        sql.SELECT("user_name");
-        sql.SELECT("birthday");
-        sql.SELECT("is_lunar");
-        sql.SELECT("avatar");
-        sql.SELECT("bound_mobile");
-        sql.SELECT("bound_email");
-        sql.FROM("user");
+        sql.SELECT("user_id");
+        sql.SELECT("country");
+        sql.SELECT("province");
+        sql.SELECT("city");
+        sql.SELECT("county");
+        sql.SELECT("address");
+        sql.SELECT("begin_date");
+        sql.SELECT("end_date");
+        sql.FROM("address");
         applyWhere(sql, example, false);
         
         if (example != null && example.getOrderByClause() != null) {
@@ -98,50 +93,46 @@ public class UserSqlProvider {
     }
 
     public String updateByExampleSelective(Map<String, Object> parameter) {
-        User record = (User) parameter.get("record");
-        UserExample example = (UserExample) parameter.get("example");
+        Address record = (Address) parameter.get("record");
+        AddressExample example = (AddressExample) parameter.get("example");
         
         SQL sql = new SQL();
-        sql.UPDATE("user");
+        sql.UPDATE("address");
         
         if (record.getId() != null) {
             sql.SET("id = #{record.id,jdbcType=INTEGER}");
         }
         
-        if (record.getUserNo() != null) {
-            sql.SET("user_no = #{record.userNo,jdbcType=VARCHAR}");
+        if (record.getUserId() != null) {
+            sql.SET("user_id = #{record.userId,jdbcType=INTEGER}");
         }
         
-        if (record.getLoginName() != null) {
-            sql.SET("login_name = #{record.loginName,jdbcType=VARCHAR}");
+        if (record.getCountry() != null) {
+            sql.SET("country = #{record.country,jdbcType=INTEGER}");
         }
         
-        if (record.getPassword() != null) {
-            sql.SET("password = #{record.password,jdbcType=VARCHAR}");
+        if (record.getProvince() != null) {
+            sql.SET("province = #{record.province,jdbcType=INTEGER}");
         }
         
-        if (record.getUserName() != null) {
-            sql.SET("user_name = #{record.userName,jdbcType=VARCHAR}");
+        if (record.getCity() != null) {
+            sql.SET("city = #{record.city,jdbcType=INTEGER}");
         }
         
-        if (record.getBirthday() != null) {
-            sql.SET("birthday = #{record.birthday,jdbcType=TIMESTAMP}");
+        if (record.getCounty() != null) {
+            sql.SET("county = #{record.county,jdbcType=INTEGER}");
         }
         
-        if (record.getIsLunar() != null) {
-            sql.SET("is_lunar = #{record.isLunar,jdbcType=BIT}");
+        if (record.getAddress() != null) {
+            sql.SET("address = #{record.address,jdbcType=VARCHAR}");
         }
         
-        if (record.getAvatar() != null) {
-            sql.SET("avatar = #{record.avatar,jdbcType=VARCHAR}");
+        if (record.getBeginDate() != null) {
+            sql.SET("begin_date = #{record.beginDate,jdbcType=DATE}");
         }
         
-        if (record.getBoundMobile() != null) {
-            sql.SET("bound_mobile = #{record.boundMobile,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getBoundEmail() != null) {
-            sql.SET("bound_email = #{record.boundEmail,jdbcType=VARCHAR}");
+        if (record.getEndDate() != null) {
+            sql.SET("end_date = #{record.endDate,jdbcType=DATE}");
         }
         
         applyWhere(sql, example, true);
@@ -150,62 +141,57 @@ public class UserSqlProvider {
 
     public String updateByExample(Map<String, Object> parameter) {
         SQL sql = new SQL();
-        sql.UPDATE("user");
+        sql.UPDATE("address");
         
         sql.SET("id = #{record.id,jdbcType=INTEGER}");
-        sql.SET("user_no = #{record.userNo,jdbcType=VARCHAR}");
-        sql.SET("login_name = #{record.loginName,jdbcType=VARCHAR}");
-        sql.SET("password = #{record.password,jdbcType=VARCHAR}");
-        sql.SET("user_name = #{record.userName,jdbcType=VARCHAR}");
-        sql.SET("birthday = #{record.birthday,jdbcType=TIMESTAMP}");
-        sql.SET("is_lunar = #{record.isLunar,jdbcType=BIT}");
-        sql.SET("avatar = #{record.avatar,jdbcType=VARCHAR}");
-        sql.SET("bound_mobile = #{record.boundMobile,jdbcType=VARCHAR}");
-        sql.SET("bound_email = #{record.boundEmail,jdbcType=VARCHAR}");
+        sql.SET("user_id = #{record.userId,jdbcType=INTEGER}");
+        sql.SET("country = #{record.country,jdbcType=INTEGER}");
+        sql.SET("province = #{record.province,jdbcType=INTEGER}");
+        sql.SET("city = #{record.city,jdbcType=INTEGER}");
+        sql.SET("county = #{record.county,jdbcType=INTEGER}");
+        sql.SET("address = #{record.address,jdbcType=VARCHAR}");
+        sql.SET("begin_date = #{record.beginDate,jdbcType=DATE}");
+        sql.SET("end_date = #{record.endDate,jdbcType=DATE}");
         
-        UserExample example = (UserExample) parameter.get("example");
+        AddressExample example = (AddressExample) parameter.get("example");
         applyWhere(sql, example, true);
         return sql.toString();
     }
 
-    public String updateByPrimaryKeySelective(User record) {
+    public String updateByPrimaryKeySelective(Address record) {
         SQL sql = new SQL();
-        sql.UPDATE("user");
+        sql.UPDATE("address");
         
-        if (record.getUserNo() != null) {
-            sql.SET("user_no = #{userNo,jdbcType=VARCHAR}");
+        if (record.getUserId() != null) {
+            sql.SET("user_id = #{userId,jdbcType=INTEGER}");
         }
         
-        if (record.getLoginName() != null) {
-            sql.SET("login_name = #{loginName,jdbcType=VARCHAR}");
+        if (record.getCountry() != null) {
+            sql.SET("country = #{country,jdbcType=INTEGER}");
         }
         
-        if (record.getPassword() != null) {
-            sql.SET("password = #{password,jdbcType=VARCHAR}");
+        if (record.getProvince() != null) {
+            sql.SET("province = #{province,jdbcType=INTEGER}");
         }
         
-        if (record.getUserName() != null) {
-            sql.SET("user_name = #{userName,jdbcType=VARCHAR}");
+        if (record.getCity() != null) {
+            sql.SET("city = #{city,jdbcType=INTEGER}");
         }
         
-        if (record.getBirthday() != null) {
-            sql.SET("birthday = #{birthday,jdbcType=TIMESTAMP}");
+        if (record.getCounty() != null) {
+            sql.SET("county = #{county,jdbcType=INTEGER}");
         }
         
-        if (record.getIsLunar() != null) {
-            sql.SET("is_lunar = #{isLunar,jdbcType=BIT}");
+        if (record.getAddress() != null) {
+            sql.SET("address = #{address,jdbcType=VARCHAR}");
         }
         
-        if (record.getAvatar() != null) {
-            sql.SET("avatar = #{avatar,jdbcType=VARCHAR}");
+        if (record.getBeginDate() != null) {
+            sql.SET("begin_date = #{beginDate,jdbcType=DATE}");
         }
         
-        if (record.getBoundMobile() != null) {
-            sql.SET("bound_mobile = #{boundMobile,jdbcType=VARCHAR}");
-        }
-        
-        if (record.getBoundEmail() != null) {
-            sql.SET("bound_email = #{boundEmail,jdbcType=VARCHAR}");
+        if (record.getEndDate() != null) {
+            sql.SET("end_date = #{endDate,jdbcType=DATE}");
         }
         
         sql.WHERE("id = #{id,jdbcType=INTEGER}");
@@ -213,7 +199,7 @@ public class UserSqlProvider {
         return sql.toString();
     }
 
-    protected void applyWhere(SQL sql, UserExample example, boolean includeExamplePhrase) {
+    protected void applyWhere(SQL sql, AddressExample example, boolean includeExamplePhrase) {
         if (example == null) {
             return;
         }

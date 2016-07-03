@@ -18,7 +18,20 @@
     <sqlMapGenerator targetPackage="demo.hugh.mvc.mapper" targetProject="spring-boot-mvc" />
     <javaClientGenerator targetPackage="demo.hugh.mvc.mapper" targetProject="spring-boot-mvc" type="ANNOTATEDMAPPER" >
     </javaClientGenerator>
-    <table tableName="user" >
+    
+    <!-- <table tableName="user" >
+    </table> -->
+    <table tableName="address" >
+    </table>
+    <table tableName="area" >
+    </table>
+    <table tableName="career" >
+    </table>
+    <table tableName="contacts" >
+    </table>
+    <table tableName="relation" >
+    </table>
+    <table tableName="relationship" >
     </table>
   </context>
 </generatorConfiguration>
