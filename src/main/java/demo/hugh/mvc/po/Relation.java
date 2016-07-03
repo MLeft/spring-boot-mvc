@@ -3,18 +3,67 @@ package demo.hugh.mvc.po;
 import java.util.Date;
 
 public class Relation {
+    /**
+     * <pre>
+     * 
+     * 表字段 : relation.id
+     * </pre>
+     * 
+     */
     private Integer id;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : relation.user_id
+     * </pre>
+     * 
+     */
     private Integer userId;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : relation.second_user_id
+     * </pre>
+     * 
+     */
     private Integer secondUserId;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : relation.relationship_id
+     * </pre>
+     * 
+     */
     private Integer relationshipId;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : relation.appellation
+     * </pre>
+     * 
+     */
     private String appellation;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : relation.create_time
+     * </pre>
+     * 
+     */
     private Date createTime;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : relation.remark
+     * </pre>
+     * 
+     */
     private String remark;
 
     public Integer getId() {

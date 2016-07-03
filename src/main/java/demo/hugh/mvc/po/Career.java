@@ -3,26 +3,103 @@ package demo.hugh.mvc.po;
 import java.util.Date;
 
 public class Career {
+    /**
+     * <pre>
+     * 
+     * 表字段 : career.id
+     * </pre>
+     * 
+     */
     private Integer id;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : career.user_id
+     * </pre>
+     * 
+     */
     private Integer userId;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : career.company_id
+     * </pre>
+     * 
+     */
     private Integer companyId;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : career.company_name
+     * </pre>
+     * 
+     */
     private String companyName;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : career.company_name_en
+     * </pre>
+     * 
+     */
     private String companyNameEn;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : career.office_number
+     * </pre>
+     * 
+     */
     private String officeNumber;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : career.office_email
+     * </pre>
+     * 
+     */
     private String officeEmail;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : career.department
+     * </pre>
+     * 
+     */
     private String department;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : career.title
+     * </pre>
+     * 
+     */
     private String title;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : career.begin_date
+     * </pre>
+     * 
+     */
     private Date beginDate;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : career.end_date
+     * </pre>
+     * 
+     */
     private Date endDate;
 
     public Integer getId() {

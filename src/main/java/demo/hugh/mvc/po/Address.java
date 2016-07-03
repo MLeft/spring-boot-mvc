@@ -3,22 +3,85 @@ package demo.hugh.mvc.po;
 import java.util.Date;
 
 public class Address {
+    /**
+     * <pre>
+     * 
+     * 表字段 : address.id
+     * </pre>
+     * 
+     */
     private Integer id;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : address.user_id
+     * </pre>
+     * 
+     */
     private Integer userId;
 
+    /**
+     * <pre>
+     * 国家
+     * 表字段 : address.country
+     * </pre>
+     * 
+     */
     private Integer country;
 
+    /**
+     * <pre>
+     * 省
+     * 表字段 : address.province
+     * </pre>
+     * 
+     */
     private Integer province;
 
+    /**
+     * <pre>
+     * 市
+     * 表字段 : address.city
+     * </pre>
+     * 
+     */
     private Integer city;
 
+    /**
+     * <pre>
+     * 县区
+     * 表字段 : address.county
+     * </pre>
+     * 
+     */
     private Integer county;
 
+    /**
+     * <pre>
+     * 详细住址
+     * 表字段 : address.address
+     * </pre>
+     * 
+     */
     private String address;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : address.begin_date
+     * </pre>
+     * 
+     */
     private Date beginDate;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : address.end_date
+     * </pre>
+     * 
+     */
     private Date endDate;
 
     public Integer getId() {

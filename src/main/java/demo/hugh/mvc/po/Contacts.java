@@ -1,20 +1,76 @@
 package demo.hugh.mvc.po;
 
 public class Contacts {
+    /**
+     * <pre>
+     * 
+     * 表字段 : contacts.id
+     * </pre>
+     * 
+     */
     private Integer id;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : contacts.user_id
+     * </pre>
+     * 
+     */
     private Integer userId;
 
+    /**
+     * <pre>
+     * 名片显示名
+     * 表字段 : contacts.card_name
+     * </pre>
+     * 
+     */
     private String cardName;
 
+    /**
+     * <pre>
+     * 支持逗号分隔
+     * 表字段 : contacts.email
+     * </pre>
+     * 
+     */
     private String email;
 
+    /**
+     * <pre>
+     * 支持逗号分隔
+     * 表字段 : contacts.mobile
+     * </pre>
+     * 
+     */
     private String mobile;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : contacts.wechat
+     * </pre>
+     * 
+     */
     private String wechat;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : contacts.qq
+     * </pre>
+     * 
+     */
     private String qq;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : contacts.weibo
+     * </pre>
+     * 
+     */
     private String weibo;
 
     public Integer getId() {

@@ -1,12 +1,40 @@
 package demo.hugh.mvc.po;
 
 public class Relationship {
+    /**
+     * <pre>
+     * 
+     * 表字段 : relationship.id
+     * </pre>
+     * 
+     */
     private Integer id;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : relationship.relationship
+     * </pre>
+     * 
+     */
     private String relationship;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : relationship.relation_weigth
+     * </pre>
+     * 
+     */
     private Integer relationWeigth;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : relationship.appellations
+     * </pre>
+     * 
+     */
     private String appellations;
 
     public Integer getId() {

@@ -3,24 +3,94 @@ package demo.hugh.mvc.po;
 import java.util.Date;
 
 public class User {
+    /**
+     * <pre>
+     * 
+     * 表字段 : user.id
+     * </pre>
+     * 
+     */
     private Integer id;
 
+    /**
+     * <pre>
+     * 用户号，全局唯一，只允许字母和数字
+     * 表字段 : user.user_no
+     * </pre>
+     * 
+     */
     private String userNo;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : user.login_name
+     * </pre>
+     * 
+     */
     private String loginName;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : user.password
+     * </pre>
+     * 
+     */
     private String password;
 
+    /**
+     * <pre>
+     * 用于显示的用户名
+     * 表字段 : user.user_name
+     * </pre>
+     * 
+     */
     private String userName;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : user.birthday
+     * </pre>
+     * 
+     */
     private Date birthday;
 
+    /**
+     * <pre>
+     * 是否农历生日
+     * 表字段 : user.is_lunar
+     * </pre>
+     * 
+     */
     private Boolean isLunar;
 
+    /**
+     * <pre>
+     * 用户头像
+     * 表字段 : user.avatar
+     * </pre>
+     * 
+     */
     private String avatar;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : user.bound_mobile
+     * </pre>
+     * 
+     */
     private String boundMobile;
 
+    /**
+     * <pre>
+     * 
+     * 表字段 : user.bound_email
+     * </pre>
+     * 
+     */
     private String boundEmail;
 
     public Integer getId() {
