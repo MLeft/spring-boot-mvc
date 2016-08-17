@@ -21,7 +21,10 @@ var vue_login = new Vue({
 			}).then((response) => {
 				// Lambda写法
 				// success
-				console.log(response.json().code);
+				console.log(response.json());
+				if(response.json().code=="S0000000"){
+					window.location.href="page/user.html";
+				}
 			},function(response){
 				// 传统写法
 				// error
