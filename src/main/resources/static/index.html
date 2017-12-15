@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+<title>自助查询</title>
+
+<!-- Bootstrap -->
+<link href="lib/bootstrap/v3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="lib/jquery/v3.0.0/js/jquery.min.js"></script>
+<!-- <script src="lib/jquery/v1.11.3/js/jquery.min.js"></script> -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="lib/bootstrap/v3.3.5/js/bootstrap.min.js"></script>
+
+<script src="lib/vue/v1.0.0/vue.js" type="text/javascript"></script>
+<script
+	src="https://cdn.jsdelivr.net/vue.resource/0.9.3/vue-resource.min.js"></script>
+
+<style type="text/css">
+.login {
+	background-color: rgba(0, 173, 255, 0.18);
+	margin-top: 40px;
+	padding-bottom: 20px;
+	border-radius: 8px;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="row" id="index_div" style="padding-top: 10px">
+			<ul class="nav nav-tabs">
+				<li role="presentation" class="active"><a href="#">日志查询</a></li>
+				<li role="presentation"><a href="#">报告生成</a></li>
+			</ul>
+			<div id="tab" style="padding-top: 20px;"></div>
+			<div id="tab-0">
+				<!-- 日志查询form -->
+				<form class="form-horizontal" action="">
+					<div class="form-group">
+						<label class="col-md-2">商户号</label>
+						<div class="col-md-10">
+							<input v-model="merchantNo" type="number" class="form-control"
+								name="merchantNo" placeholder="请输入测试商户号">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2">验证业务</label>
+						<div class="col-md-10">
+							<select v-model="tranType" class="form-control">
+								<option value="AGENTCOLL">代收</option>
+								<option value="AGENTPAY">代付</option>
+								<option value="RNPAY">实名支付</option>
+								<option value="AUTH">实名认证</option>
+								<option value="NETPAY">网银</option>
+								<option value="ONEPAY">信运付</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2">商户订单号</label>
+						<div class="col-md-10">
+							<input v-model="merOrderId" type="text" class="form-control"
+								name="merOrderId" placeholder="请输入测试商户订单号">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-offset-2 col-md-10">
+							<button v-on:click.prevent="query_log" type="submit"
+								class="btn btn-primary">查询</button>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-12">日志: </label>
+						<div class="col-md-12">
+							<textarea v-model="log" class="form-control" rows="10"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2">商户名</label>
+						<div class="col-md-10">
+							<input v-model="merchantName" type="text" class="form-control"
+								name="merchantName" placeholder="请输入要开通生产的商户名">
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-md-2">客户经理</label>
+						<div class="col-md-10">
+							<input v-model="managerName" type="text" class="form-control"
+								placeholder="请输入与您对接的客户经理">
+						</div>
+					</div>
+
+					<p>
+						确认无误后, 请 <b>填写</b> 商户名和客户经理名, 然后 <b>复制</b> 以下内容, 邮件发送到技术邮箱
+						{{email}} (同时抄送客户经理邮箱)
+					</P>
+					<p>邮件标题: XX商户_XX业务_联调验收报告</p>
+					<p>邮件内容:</p>
+					<div class="col-md-8 ">
+						<table class="table table-striped">
+							<tbody>
+								<tr>
+									<td>商户名</td>
+									<td>{{merchantName}}</td>
+								</tr>
+								<tr>
+									<td>客户经理</td>
+									<td>{{managerName}}</td>
+								</tr>
+								<tr>
+									<td>验收结果</td>
+									<td>{{status}}</td>
+								</tr>
+								<tr>
+									<td>验收业务</td>
+									<td>{{tranBus}}</td>
+								</tr>
+								<tr>
+									<td>联调流水号</td>
+									<td>{{merOrderId}}</td>
+								</tr>
+							</tbody>
+
+						</table>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	<script src="index.js" type="text/javascript">
+		
+	</script>
+</body>
+</html>

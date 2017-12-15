@@ -18,8 +18,9 @@ public class MyCommentGenerator extends DefaultCommentGenerator {
 		StringBuffer sb = new StringBuffer();
 		field.addJavaDocLine("/**");
 		field.addJavaDocLine(" * <pre>");
-		if (introspectedColumn.getRemarks() != null)
+		if (introspectedColumn.getRemarks() != null) {
 			field.addJavaDocLine(" * " + introspectedColumn.getRemarks());
+		}
 		sb.append(" * 表字段 : ");
 		sb.append(introspectedTable.getFullyQualifiedTable());
 		sb.append('.');
