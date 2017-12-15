@@ -47,7 +47,7 @@ public class DataBaseConfig {
 
 		PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
 
-		sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:demo/hugh/*/mapper/*.xml"));
+		sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:mapper/*.xml"));
 		return sqlSessionFactoryBean.getObject();
 	}
 }

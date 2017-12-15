@@ -1,4 +1,0 @@
-[demo-mvc] INFO 2016-08-07 22:39:00,640 [http-nio-7070-exec-1] DruidDataSource.init(669) | {dataSource-1} inited
-[demo-mvc] INFO 2016-08-07 22:45:43,838 [Thread-9] DruidDataSource.close(1385) | {dataSource-1} closed
-[demo-mvc] INFO 2016-08-07 23:15:26,173 [http-nio-7070-exec-9] DruidDataSource.init(669) | {dataSource-2} inited
-[demo-mvc] INFO 2016-08-07 23:16:04,756 [Thread-39] DruidDataSource.close(1385) | {dataSource-2} closed

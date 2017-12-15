@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="demo.hugh.mvc.mapper.TranFlowMapper">
+	<select id="listTranFlow"  resultType="demo.hugh.mvc.dto.TranFlowDto"   >  
+		select op.merchant_id as merchantNo,
+		       op.mer_order_id as merOrderId,
+		       op.tran_type as tranType,
+		       op.tran_flow_id as tranFlowId,
+		       op.create_time as createTime,
+		       opn.notice_id as noticeId,
+		       opn.is_notify as isNotify,
+		       opn.notify_count as notifyCount
+		  from op_order_flow op
+		  left join op_notice opn
+		    on opn.tran_flow_id = op.tran_flow_id
+		 where op.mer_order_id = #{merOrderId}
+		   and op.merchant_id = #{merchantNo}
+		union all (select cp.merchant_no as merchantNo,
+		                  cp.mer_order_id as merOrderId,
+		                  cp.tran_type as tranType,
+		                  cp.id as tranFlowId,
+		                  cp.create_time as createTime,
+		                  cpn.noticeno as noticeId,
+		                  cpn.isnotify as isNotify,
+		                  cpn.notifycount as notifyCount
+		             from cp_order_flow cp
+		             left join pm_notice cpn
+		               on cpn.bussflowno = cp.mer_order_id
+		              and cpn.merchantno = cp.merchant_no
+		            where cp.merchant_no = #{merOrderId}
+		              and cp.mer_order_id = #{merchantNo})
+		union all (select rnp.merchant_no as merchantNo,
+		                  rnp.mer_order_id as merOrderId,
+		                  rnp.tran_type as tranType,
+		                  rnp.rn_tran_flow_no as tranFlowId,
+		                  rnp.create_time as createTime,
+		                  rnpn.noticeno as noticeId,
+		                  rnpn.isnotify as isNotify,
+		                  rnpn.notifycount as notifyCount
+		             from rnpay_tran_flow rnp
+		             left join pm_notice rnpn
+		               on rnpn.bussflowno = rnp.mer_order_id
+		              and rnpn.merchantno = rnp.merchant_no
+		            where rnp.mer_order_id = #{merOrderId}
+		              and rnp.merchant_no = #{merchantNo})
+	</select> 
+</mapper>
