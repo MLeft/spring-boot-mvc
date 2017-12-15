@@ -3,13 +3,16 @@ package demo.hugh.mvc.web;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.alibaba.fastjson.JSON;
 
 import demo.hugh.mvc.bean.BaseResBean;
 import demo.hugh.mvc.po.User;
@@ -19,7 +22,7 @@ import demo.hugh.mvc.service.UserService;
 @RequestMapping("/sys")
 public class LoginController {
 
-	Logger log = Logger.getLogger(HelloController.class);
+	Logger log = LoggerFactory.getLogger(HelloController.class);
 
 	@Resource
 	UserService userServiceImpl;
@@ -30,7 +33,7 @@ public class LoginController {
 			@RequestParam(required = false) String name,
 			@RequestParam(required = false) String pwd) {
 
-		// log.debug("---请求参数:" + JSON.toJSONString(request.getParameterMap()));
+		log.debug("---请求参数: {}", JSON.toJSONString(request.getParameterMap()));
 		BaseResBean res = new BaseResBean("S0000000", "登录成功");
 
 		User user = userServiceImpl.getUserByName(name);

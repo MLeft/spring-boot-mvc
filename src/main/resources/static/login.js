@@ -23,7 +23,7 @@ var vue_login = new Vue({
 				// success
 				console.log(response.json());
 				if(response.json().code=="S0000000"){
-					window.location.href="page/user.html";
+					window.location.href="index.html";
 				}
 			},function(response){
 				// 传统写法
