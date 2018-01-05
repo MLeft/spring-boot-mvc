@@ -1,33 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
 <generatorConfiguration >
-  <!-- <classPathEntry location="${user.home}/.m2/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar" /> -->
-  <classPathEntry location="${user.home}/.m2/repository/com/oracle/ojdbc6/11.2.0.1.0/ojdbc6-11.2.0.1.0.jar" />
+  <classPathEntry location="${user.home}/.m2/repository/mysql/mysql-connector-java/5.1.38/mysql-connector-java-5.1.38.jar" />
+  <!-- <classPathEntry location="${user.home}/.m2/repository/com/oracle/ojdbc6/11.2.0.1.0/ojdbc6-11.2.0.1.0.jar" /> -->
 	<context id="context1" targetRuntime="MyBatis3">
 		<commentGenerator type="demo.hugh.mvc.mbg.MyCommentGenerator">
 			<property name="suppressDate" value="true" />
 			<property name="suppressAllComments" value="true" />
 		</commentGenerator>
 
-		<!-- <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-			connectionURL="jdbc:mysql://localhost:3306/boot-mvc" userId="root"
-			password="root" /> -->
-		<jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
-			connectionURL="jdbc:oracle:thin:@10.10.10.101:1521:jytpay" userId="jytpaydev"
-			password="jytpaydev" />
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.50.16:3306/boot-mvc" userId="root"
+			password="mysql" />
+		<!-- <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
+			connectionURL="jdbc:mysql://localhost:3306/boot-mvc" userId="jytpaydev"
+			password="jytpaydev" /> -->
 	<javaTypeResolver>
 		<property name="forceBigDecimals" value="false" />
 	</javaTypeResolver>
 	<javaModelGenerator targetPackage="demo.hugh.mvc.po"
-		targetProject="spring-boot-mvc" />
+		targetProject="yys-yuhun" />
 	<sqlMapGenerator targetPackage="demo.hugh.mvc.mapper"
-		targetProject="spring-boot-mvc" />
+		targetProject="yys-yuhun" />
 	<javaClientGenerator targetPackage="demo.hugh.mvc.mapper"
-		targetProject="spring-boot-mvc" type="ANNOTATEDMAPPER">
+		targetProject="yys-yuhun" type="ANNOTATEDMAPPER">
 	</javaClientGenerator>
     
     <!-- <table tableName="user" >
     </table>  -->
+    <table tableName="yuhun"></table>
     
   </context>
 </generatorConfiguration>
