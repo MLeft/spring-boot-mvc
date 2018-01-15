@@ -71,11 +71,9 @@ public class LogCatServiceImpl implements LogCatService {
 		@Override
 		public void run() {
 			String line;
-			int lineNum = 0;
 
 			try {
 				while ((line = bReader.readLine()) != null) {
-					lineNum++;
 					log.error(line);
 				}
 				bReader.close();

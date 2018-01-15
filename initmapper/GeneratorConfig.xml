@@ -10,8 +10,11 @@
 		</commentGenerator>
 
 		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://127.0.0.1:3306/yys-yuhun" userId="root"
+			password="root" />
+		<!-- <jdbcConnection driverClass="com.mysql.jdbc.Driver"
 			connectionURL="jdbc:mysql://192.168.50.16:3306/boot-mvc" userId="root"
-			password="mysql" />
+			password="mysql" /> -->
 		<!-- <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"
 			connectionURL="jdbc:mysql://localhost:3306/boot-mvc" userId="jytpaydev"
 			password="jytpaydev" /> -->
@@ -28,7 +31,8 @@
     
     <!-- <table tableName="user" >
     </table>  -->
-    <table tableName="yuhun"></table>
+    <!-- <table tableName="yuhun"></table> -->
+    <table tableName="yuhun_type"></table>
     
   </context>
 </generatorConfiguration>
